@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements. See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version
+    2.0 (the "License"); you may not use this file except in compliance
+    with the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+    applicable law or agreed to in writing, software distributed under
+    the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+    OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and
+    limitations under the License. $Id: pom.xml 771445 2009-05-04
+    21:11:46Z ate $
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.apache.portals</groupId>
+    <artifactId>portals-pom</artifactId>
+    <version>1.4</version>
+  </parent>
+  <groupId>org.apache.portals.jetspeed-2</groupId>
+  <artifactId>j2-admin</artifactId>
+  <packaging>war</packaging>
+  <version>2.3.1</version>
+  <name>Jetspeed-2 Administration</name>
+  
+  <properties>
+    <!-- Project Dependency Version Properties -->
+    <jetspeed-2.version>2.3.1</jetspeed-2.version>
+    <org.apache.portals.bridges.common.version>2.1</org.apache.portals.bridges.common.version>
+    <org.apache.portals.bridges.velocity.version>2.1</org.apache.portals.bridges.velocity.version>
+    <org.apache.portals.applications.apa-gems.version>1.2</org.apache.portals.applications.apa-gems.version>
+    <org.apache.portals.applications.apa-webcontent2.version>2.0</org.apache.portals.applications.apa-webcontent2.version>
+    <commons-digester.version>2.1</commons-digester.version>
+    <commons-configuration.version>1.10</commons-configuration.version>
+    <commons-lang.version>2.6</commons-lang.version>
+    <commons-fileupload.version>1.3.1</commons-fileupload.version>
+    <commons-io.version>2.4</commons-io.version>
+    <commons-beanutils.version>1.9.2</commons-beanutils.version>
+    <commons-validator.version>1.3.1</commons-validator.version>
+    <commons-codec.version>1.6</commons-codec.version>
+    <slf4j.version>1.5.6</slf4j.version>
+    <javax.servlet.jstl.version>1.1.2</javax.servlet.jstl.version>
+    <javax.servlet.version>3.0.1</javax.servlet.version>
+    <javax.servlet.jsp.version>2.2.1</javax.servlet.jsp.version>
+    <log4j.version>1.2.17</log4j.version>
+    <portals.portlet2-api-spec.version>1.0</portals.portlet2-api-spec.version>
+    <org.apache.pluto.version>2.0.3</org.apache.pluto.version>
+    <!--  <spring.version>2.5.6</spring.version> -->
+    <spring.version>3.2.9.RELEASE</spring.version>
+    <taglibs-request.version>1.0.1</taglibs-request.version>
+    <taglibs-standard.version>1.1.2</taglibs-standard.version>
+    <velocity-tools.version>1.3</velocity-tools.version>
+    <velocity.version>1.6.4</velocity.version>
+    <xerces.version>2.8.1</xerces.version>
+    <wicket.version>1.4.17</wicket.version>
+    <jackson.version>2.2.3</jackson.version>
+  </properties>
+
+  <!-- Dependencies -->
+
+  <dependencies>
+
+    <!-- Standard APIs -->
+    <dependency>
+      <groupId>org.apache.portals</groupId>
+      <artifactId>portlet-api_2.1.0_spec</artifactId>
+      <version>${portals.portlet2-api-spec.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${javax.servlet.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
+      <version>${javax.servlet.jsp.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Pluto Container -->
+    <dependency>
+      <groupId>org.apache.portals.pluto</groupId>
+      <artifactId>pluto-container-api</artifactId>
+      <version>${org.apache.pluto.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Build Dependencies -->
+    <dependency>
+      <groupId>org.apache.portals.jetspeed-2</groupId>
+      <artifactId>jetspeed-api</artifactId>
+      <version>${jetspeed-2.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.jetspeed-2</groupId>
+      <artifactId>jetspeed-commons</artifactId>
+      <version>${jetspeed-2.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.jetspeed-2</groupId>
+      <artifactId>jetspeed-locator</artifactId>
+      <version>${jetspeed-2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.applications</groupId>
+      <artifactId>apa-gems</artifactId>
+      <version>${org.apache.portals.applications.apa-gems.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>velocity</groupId>
+          <artifactId>velocity</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>velocity-tools</groupId>
+          <artifactId>velocity-tools</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity</artifactId>
+      <version>${velocity.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity-tools</artifactId>
+      <version>${velocity-tools.version}</version>
+      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>velocity</groupId>
+          <artifactId>velocity</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>sslext</groupId>
+          <artifactId>sslext</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>struts</groupId>
+          <artifactId>struts</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.bridges</groupId>
+      <artifactId>portals-bridges-common</artifactId>
+      <version>${org.apache.portals.bridges.common.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.bridges</groupId>
+      <artifactId>portals-bridges-velocity</artifactId>
+      <version>${org.apache.portals.bridges.velocity.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>velocity</groupId>
+          <artifactId>velocity</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>velocity-tools</groupId>
+          <artifactId>velocity-tools</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>${commons-fileupload.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>${commons-codec.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <!-- Runtime Dependencies -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${javax.servlet.jstl.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>${taglibs-standard.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>request</artifactId>
+      <version>${taglibs-request.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-digester</groupId>
+      <artifactId>commons-digester</artifactId>
+      <version>${commons-digester.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-configuration</groupId>
+      <artifactId>commons-configuration</artifactId>
+      <version>${commons-configuration.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils-core</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>${commons-beanutils.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>${commons-lang.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xercesImpl</artifactId>
+      <version>${xerces.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc-portlet</artifactId>
+      <version>${spring.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket</artifactId>
+      <version>${wicket.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-extensions</artifactId>
+      <version>${wicket.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.applications</groupId>
+      <artifactId>apa-webcontent2-portlets</artifactId>
+      <version>${org.apache.portals.applications.apa-webcontent2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-validator</groupId>
+      <artifactId>commons-validator</artifactId>
+      <version>${commons-validator.version}</version>
+    </dependency>
+
+	<!-- test dependencies -->
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.10</version>
+		<scope>test</scope>
+	</dependency>
+  </dependencies>
+
+  <!-- Build Configuration -->
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+            <debug>true</debug>
+            <showDeprecation>true</showDeprecation>
+            <showWarnings>true</showWarnings>
+            <optimize>false</optimize>
+          </configuration>
+        </plugin>
+        <!--
+          workaround for war processing of m-r-r-plugin causing the generated NOTICE and LICENSE file to be put under
+          WEB-INF/classes/META-INF
+        -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-remote-resources-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>process</goal>
+              </goals>
+              <configuration>
+                <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+                <attached>false</attached>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- Don't attach source or javadoc archive -->
+        <plugin>
+          <artifactId>maven-source-plugin</artifactId>
+          <configuration>
+            <attach>false</attach>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
+        </plugin>
+          <plugin>
+            <groupId>ro.isdc.wro4j</groupId>
+            <artifactId>wro4j-maven-plugin</artifactId>
+            <version>1.6.3</version>
+          </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>ro.isdc.wro4j</groupId>
+        <artifactId>wro4j-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <targetGroups>J2_ADMIN_CSS,J2_ADMIN_CHARTS_CSS,J2_ADMIN_EXTERNAL_JS,J2_ADMIN_INTERNAL_JS,J2_ADMIN_INTERNAL_CHARTS_JS</targetGroups>
+          <minimize>false</minimize>
+          <destinationFolder>${basedir}/target/${project.artifactId}-${project.version}/wro/</destinationFolder>
+          <!--<cssDestinationFolder>d:/static/css/</cssDestinationFolder>-->
+          <!--<jsDestinationFolder>d:/static/js/</jsDestinationFolder>-->
+          <contextFolder>${basedir}/src/main/webapp/</contextFolder>
+          <wroFile>${basedir}/src/main/webapp/WEB-INF/wro.xml</wroFile>
+          <ignoreMissingResources>false</ignoreMissingResources>
+        </configuration>
+      </plugin>
+    </plugins>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ftp</artifactId>
+        <version>1.0-alpha-6</version>
+      </extension>
+    </extensions>
+
+  </build>
+
+  <profiles>
+    <profile>
+      <id>rat</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.rat</groupId>
+            <artifactId>apache-rat-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                  <exclude>**/target/**</exclude>
+                  <exclude>src/main/webapp/META-INF/SLF4J-LICENSE</exclude>
+                  <exclude>src/main/webapp/META-INF/BOILERPLATE_LICENSE.md</exclude>
+                  <exclude>src/main/webapp/META-INF/BOOTSTRAP_LICENSE</exclude>
+                  <exclude>src/main/webapp/META-INF/D3-LICENSE</exclude>
+                  <exclude>src/main/webapp/META-INF/JQUERY_MIT_LICENSE.txt</exclude>
+                  <exclude>src/main/webapp/META-INF/LODASH_LICENSE</exclude>
+                  <exclude>src/main/webapp/META-INF/MIT-LICENSE</exclude>
+                  <exclude>src/main/webapp/META-INF/MIT_LICENSE</exclude>
+                  <exclude>src/main/webapp/META-INF/MOMENT_LICENSE</exclude>
+                  <exclude>src/main/webapp/META-INF/NG_GRID_LICENSE.md</exclude>
+                <!-- Angular under MIT License -->
+                <exclude>src/main/webapp/jetapp/bower_components/angular-cookies.js</exclude>
+                <exclude>src/main/webapp/jetapp/bower_components/angular-route.js</exclude>
+                <exclude>src/main/webapp/jetapp/bower_components/angular.js</exclude>
+                <exclude>src/main/webapp/jetapp/bower_components/ui-bootstrap-tpls.js</exclude>
+                <!-- Bootstrap under MIT License -->
+                <exclude>src/main/webapp/jetapp/bower_components/bootstrap.js</exclude>
+                <!-- JQuery under MIT License -->
+                <exclude>src/main/webapp/jetapp/bower_components/jquery.js</exclude>
+                <exclude>src/main/webapp/jetapp/charts/scripts/jquery-2.1.3.min.js</exclude>
+                <!-- Lodash under MIT License -->
+                  <exclude>src/main/webapp/jetapp/bower_components/lodash.js</exclude>
+                <!-- Modernizr under MIT License -->
+                  <exclude>src/main/webapp/jetapp/bower_components/modernizr-2.8.3.min.js</exclude>
+                <!-- NG Grid under MIT License -->
+                  <exclude>src/main/webapp/jetapp/bower_components/ng-grid-2.0.14.min.js</exclude>
+                  <exclude>src/main/webapp/jetapp/bower_components/ng-grid-flexible-height.js</exclude>
+                  <exclude>src/main/webapp/jetapp/styles/ng-grid.min.css</exclude>
+                <!-- D3 under D3 license -->
+                  <exclude>src/main/webapp/jetapp/charts/scripts/d3.min.js</exclude>
+                <!-- NVD3 under Apache License -->
+                  <exclude>src/main/webapp/jetapp/charts/scripts/nv.d3.min.js</exclude>
+                  <exclude>src/main/webapp/jetapp/charts/styles/nv.d3.min.css</exclude>
+                <!-- MomentJS under Moment JS License -->
+                  <exclude>src/main/webapp/jetapp/bower_components/moment.js</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <!-- Project Information -->
+
+  <scm>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/portals/jetspeed-2/applications/j2-admin/tags/j2-admin-2.3.1</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/portals/jetspeed-2/applications/j2-admin/tags/j2-admin-2.3.1</developerConnection>
+    <url>http://svn.apache.org/viewcvs.cgi/portals/jetspeed-2/applications/j2-admin/tags/j2-admin-2.3.1</url>
+  </scm>
+
+</project>

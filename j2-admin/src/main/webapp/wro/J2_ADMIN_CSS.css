@@ -1,0 +1,584 @@
+.ngGrid {
+    background-color: #fdfdfd
+}
+
+.ngGrid input[type="checkbox"] {
+    margin: 0;
+    padding: 0
+}
+
+.ngGrid input {
+    vertical-align: top
+}
+
+.ngGrid.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none
+}
+
+.ngViewport {
+    overflow: auto;
+    min-height: 20px
+}
+
+.ngViewport:focus {
+    outline: 0
+}
+
+.ngCanvas {
+    position: relative
+}
+
+.ngVerticalBar {
+    position: absolute;
+    right: 0;
+    width: 0
+}
+
+.ngVerticalBarVisible {
+    width: 1px;
+    background-color: #d4d4d4
+}
+
+#testDataLength {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -100000
+}
+
+.ngHeaderContainer {
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    background-color: inherit
+}
+
+.ngHeaderCell {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: inherit
+}
+
+.ngHeaderCell.pinned {
+    z-index: 1
+}
+
+.ngHeaderSortColumn {
+    position: absolute;
+    overflow: hidden
+}
+
+.ngTopPanel {
+    position: relative;
+    z-index: 1;
+    background-color: #eaeaea;
+    border-bottom: 1px solid #d4d4d4
+}
+
+.ngSortButtonDown {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: gray transparent;
+    border-style: solid;
+    border-width: 0 5px 5px 5px;
+    height: 0;
+    width: 0
+}
+
+.ngNoSort {
+    cursor: default
+}
+
+.ngHeaderButton {
+    position: absolute;
+    right: 2px;
+    top: 8px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    z-index: 1;
+    background-color: #9fbbb4;
+    cursor: pointer
+}
+
+.ngSortButtonUp {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: gray transparent;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    height: 0;
+    width: 0
+}
+
+.ngHeaderScroller {
+    position: absolute;
+    background-color: inherit
+}
+
+.ngSortPriority {
+    position: absolute;
+    top: -5px;
+    left: 1px;
+    font-size: 6pt;
+    font-weight: bold
+}
+
+.ngHeaderGrip {
+    cursor: col-resize;
+    width: 10px;
+    right: -5px;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    background-color: transparent
+}
+
+.ngHeaderText {
+    padding: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.ngHeaderButtonArrow {
+    position: absolute;
+    top: 4px;
+    left: 3px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6.5px 4.5px 0 4.5px;
+    border-color: #4d4d4d transparent transparent transparent
+}
+
+.ngPinnedIcon {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAAmElEQVQoU33PQapBURjA8UtkwJuaWYGSgfQWYBMvczPmTCzAAGVuaA228BZhRCkDGSmE31FucuRfvzq3vr5zT/JSjSU7DsypEPXDkDVn2hSIytJhw4kWGaLCxgHh2gt/RBuLzNhz5caWPjnSqqw4EraFfwznf8qklWjwy4IRTerkiQoPGtPl40OehcEJvcfXl8LglLfBJLkDcMgbgHlHhK8AAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: 10px;
+    width: 10px
+}
+
+.ngUnPinnedIcon {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAAlElEQVQoU33PPQrCQBRF4fFnI2KfZVi5ARvdgo1l6mwmkCJVOgluwd5OwUoDtnoOxAei8cLXTN7cvEl/skCNDCMPfsUPO5zQwOHIDEvYtMURHe6wOVLgigvOePRyeDkyR4ln7wZ);
+}
+
+a.ItemIcon.DefaultPageIcon {
+    color: black !important;
+    font-family: Helvetica,
+    Arial,
+    sans-serif;
+    font-size: 11px;
+}
+
+.UINavigationPortlet
+.UITab
+a.TabIcon {
+    color: black;
+    text-decoration: none;
+}
+
+.UINavigationPortlet
+.NormalNavigationTab
+a.TabIcon {
+    color: #fff;
+}
+
+.TabIcon {
+    font-size: 11px !important;
+    font-family: sans-serif !important;
+}
+
+.FL {
+    font-size: 11px !important;
+    font-family: sans-serif !important;
+}
+
+.Selected {
+    font-size: 11px !important;
+    font-family: sans-serif !important;
+}
+
+.tabs-below
+>
+.nav-tabs,
+.tabs-right
+>
+.nav-tabs,
+.tabs-left
+>
+.nav-tabs {
+    border-bottom: 0;
+}
+
+.tab-content
+>
+.tab-pane,
+.pill-content
+>
+.pill-pane {
+    display: none;
+}
+
+.tab-content
+>
+.active,
+.pill-content
+>
+.active {
+    display: block;
+}
+
+.tabs-below
+>
+.nav-tabs {
+    border-top: 1px solid #ddd;
+}
+
+.tabs-below
+>
+.nav-tabs
+>
+li {
+    margin-top: -1px;
+    margin-bottom: 0;
+}
+
+.tabs-below
+>
+.nav-tabs
+>
+li
+>
+a {
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+}
+
+.tabs-below
+>
+.nav-tabs
+>
+li
+>
+a:hover,
+.tabs-below
+>
+.nav-tabs
+>
+li
+>
+a:focus {
+    border-top-color: #ddd;
+    border-bottom-color: transparent;
+}
+
+.tabs-below
+>
+.nav-tabs
+>
+.active
+>
+a,
+.tabs-below
+>
+.nav-tabs
+>
+.active
+>
+a:hover,
+.tabs-below
+>
+.nav-tabs
+>
+.active
+>
+a:focus {
+    border-color: transparent #ddd #ddd #ddd;
+}
+
+.tab-icon {
+    max-height: 2em;
+    margin-right: 1.5em;
+}
+
+.tab-name {
+    margin-top: 1em;
+}
+
+.tab-pane {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 1em;
+    height: 500px;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto text-align : center;
+}
+
+.icon-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.icon-list:after {
+    clear: both;
+}
+
+.icon-list
+.icon-list-item {
+    float: left;
+    position: relative;
+    margin: 0 0 4px 0;
+    width: 72px;
+    height: 72px;
+    text-align: center;
+    padding: 8px;
+}
+
+.icon-list
+.icon-list-item
+.status {
+    position: absolute;
+    top: 0px;
+    right: 3px;
+}
+
+.icon-list
+.icon-list-item
+.status-red {
+    color: red;
+}
+
+.icon-list
+.icon-list-item
+.status-yellow {
+    color: #7F6A00;
+}
+
+.icon-list
+.icon-list-item
+div.img-container {
+    padding: 10px;
+    max-width: 100px;
+    border: 1px solid lightgrey;
+}
+
+.icon-list
+.icon-list-item
+div.img-container
+img {
+    max-width: 100%;
+}
+
+.icon-list
+.icon-list-item
+p.name {
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 7pt;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.audit-nav-container
+form {
+    padding: 0;
+}
+
+.panel.no-border {
+    border: 0;
+}
+
+#audit-next[disabled] {
+    color: #999;
+}
+
+#infohover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: .5em;
+    background: white;
+    border: 1px solid lightgrey;
+    width: 300px;
+    min-height: 100px;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+    z-index: 1;
+}
+
+#infohover
+h3 {
+    padding-top: 0;
+    margin-top: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 270px;
+    font-size: 1.6em;
+    display: block;
+    text-decoration: none !important;
+}
+
+#infohover
+.timestamp {
+    font-size: 1.2em;
+}
+
+#infohover
+h4 {
+    font-size: 1em;
+}
+
+#infohover
+h4
+.icon {
+    position: relative;
+    top: -1px;
+    margin-right: .7em;
+}
+
+#infohover
+h4
+.icon.icon-alert {
+    top: -3px;
+}
+
+#infohover
+hr {
+    padding: 0;
+    margin: 1em;
+    color: grey;
+    border-top: 1px solid grey;
+}
+
+.alert {
+    color: red;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-shadow: 0 0 0;
+    box-shadow: none;
+}
+
+table.filter-table,
+table.filter-table-2 {
+    margin: .5em .25em 1em .25em;
+}
+
+table.filter-table
+td {
+    padding: .5em 1em;
+}
+
+table.filter-table
+td
+label,
+table.filter-table-2
+td
+label {
+    margin-bottom: 3px;
+}
+
+table.filter-table
+td
+input,
+table.filter-table-2
+td
+input {
+    width: 100%;
+    padding: 5px;
+    height: 25px;
+}
+
+table.filter-table
+td
+.btn,
+table.filter-table-2
+td
+.btn {
+    padding: 2px 5px;
+    font-size: 1.2em;
+}
+
+.audit-nav-container {
+    position: relative;
+}
+
+.audit-nav-top {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}
+
+input#host-identities-search {
+    padding: 7px;
+    height: 26px;
+}
+
+input.error {
+    color: red;
+    background-color: #FFE9E8;
+    border-color: red;
+}
+
+.margin-bottom10 {
+    margin-bottom: 10px;
+}
+
+.modal.fade.slide-from-right {
+    margin: 0;
+}
+
+.modal.fade.slide-from-right:not
+(
+.in
+)
+.modal-dialog {
+    -webkit-transform: translate3d(25%, 0, 0);
+    transform: translate3d(25%, 0, 0);
+}
+
+.modal.fade.slide-from-right.in .modal-dialog {
+    margin: 0px 10% 0px auto;
+}
+
+.ngViewport {
+    min-height: 50px;
+}

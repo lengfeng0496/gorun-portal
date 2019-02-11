@@ -1,0 +1,91 @@
+#*
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*#
+#set ($MESSAGES = $portletConfig.getResourceBundle($renderRequest.Locale))
+#set($rc = $renderRequest.getAttribute("org.apache.jetspeed.request.RequestContext"))
+#set ($responsive = $rc.getAttribute("org.apache.jetspeed.theme.responsive"))
+
+#if ($responsive)
+<div id="ForgottenPassword">
+	#if($updatedPWMsg)
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><p class="portlet-msg-success">$updatedPWMsg</p></div>
+		</div>
+	#else	
+		<form name="forgottenPasswordForm" action="$renderResponse.createActionURL()" method="post" >
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				$MESSAGES.getString('page.message') 
+				#if($MSG )
+		 			<br>
+		 			<p class="portlet-msg-error">$!MSG</p>
+		 		#end
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <div class="form-group no-margin-bottom">
+                    <label for="forgottenPasswordEmail">$MESSAGES.getString('page.email')</label>
+                    <div class="input-group">
+                        <input type="email" name="forgottenPasswordEmail" id="forgottenPasswordEmail" class="form-control" value="$!email" />
+                        <span class="input-group-btn">
+                            <button type="submit" name="Request New Password" class="btn btn-default">$MESSAGES.getString('page.button')</button>
+                        </span>
+                    </div>
+                </div>
+			</div>
+		</div>
+	    </form>
+    #end
+</div>
+
+#else
+
+<div id="ForgottenPassword"  class="portlet-section-text">
+    #if($updatedPWMsg)
+        <table>
+            <tr><td colspan="2" ><p class="portlet-msg-success">$updatedPWMsg</p></td></tr>
+        </table>
+    #else
+        <form name="forgottenPasswordForm" action="$renderResponse.createActionURL()" method="post" >
+            <table>
+                <tr><td colspan="2" >
+                    $MESSAGES.getString('page.message')
+                    #if($MSG )
+                        <br>
+                        <p class="portlet-msg-error">$!MSG</p>
+                    #end
+                </td></tr>
+
+                <tr><td>$MESSAGES.getString('page.email')</td><td><input type="text" name="email" value="$!email" /></td></tr>
+                <tr><td colspan="2" > <input type="submit" value="$MESSAGES.getString('page.button')"  name="Request New Password" /> </td></tr>
+            </table>
+        </form>
+    #end
+</div>
+
+#end
+
+<script type="text/javascript">
+    var ForgottenPasswordComponent = {};
+    ForgottenPasswordComponent.refresh = function(id, name) {
+        console.log('FPG: portlet.name =' + name + ", portlet.id = " + id);
+    }
+</script>

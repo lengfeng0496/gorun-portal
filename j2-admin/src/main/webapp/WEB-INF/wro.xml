@@ -1,0 +1,84 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<groups xmlns="http://www.isdc.ro/wro">
+
+
+    <group name="J2_ADMIN_CSS">
+        <css minimize="false">/jetapp/styles/ng-grid.min.css</css>
+        <css minimize="false">/jetapp/styles/app.css</css>
+        <!--<css minimize="false">/jetapp/styles/default.css</css>-->
+    </group>
+
+    <group name="J2_ADMIN_CHARTS_CSS">
+        <css minimize="false">/jetapp/charts/styles/nv.d3.min.css</css>
+        <css minimize="false">/jetapp/charts/styles/styles.css</css>
+    </group>
+
+    <group name="J2_ADMIN_EXTERNAL_JS">
+        <!--<js minimize="false">/jetapp/bower_components/jquery.js</js>-->
+        <!--<js minimize="false">/jetapp/bower_components/modernizr-2.8.3.min.js</js>-->
+        <!--<js minimize="false">/jetapp/bower_components/bootstrap.js</js>-->
+        <js minimize="false">/jetapp/bower_components/lodash.js</js>
+        <js minimize="false">/jetapp/bower_components/moment.js</js>
+        <js minimize="false">/jetapp/bower_components/angular.js</js>
+        <js minimize="false">/jetapp/bower_components/angular-route.js</js>
+        <js minimize="false">/jetapp/bower_components/ui-bootstrap-tpls.js</js>
+        <js minimize="false">/jetapp/bower_components/angular-cookies.js</js>
+        <js minimize="false">/jetapp/bower_components/ng-grid-2.0.14.min.js</js>
+        <js minimize="false">/jetapp/bower_components/ng-grid-flexible-height.js</js>
+    </group>
+
+    <group name="J2_ADMIN_INTERNAL_JS">
+        <js minimize="false">/jetapp/scripts/TextMessages.js</js>
+        <js minimize="false">/jetapp/scripts/ServerService.js</js>
+        <js minimize="false">/jetapp/scripts/RestApiService.js</js>
+        <js minimize="false">/jetapp/scripts/PortletService.js</js>
+        <js minimize="false">/jetapp/scripts/StatisticsRestServices.js</js>
+        <js minimize="false">/jetapp/app.js</js>
+        <js minimize="false">/jetapp/scripts/controllers.js</js>
+        <js minimize="false">/jetapp/scripts/chartControllers.js</js>
+        <js minimize="false">/jetapp/scripts/directives.js</js>
+        <js minimize="false">/jetapp/scripts/filters.js</js>
+    </group>
+
+    <group name="J2_ADMIN_INTERNAL_CHARTS_JS">
+        <js minimize="false">/jetapp/scripts/TextMessages.js</js>
+        <js minimize="false">/jetapp/scripts/ServerService.js</js>
+        <js minimize="false">/jetapp/scripts/RestApiService.js</js>
+        <js minimize="false">/jetapp/scripts/PortletService.js</js>
+        <js minimize="false">/jetapp/scripts/StatisticsRestServices.js</js>
+        <js minimize="false">/jetapp/app.js</js>
+        <js minimize="false">/jetapp/scripts/controllers.js</js>
+        <js minimize="false">/jetapp/scripts/chartControllers.js</js>
+        <js minimize="false">/jetapp/scripts/directives.js</js>
+        <js minimize="false">/jetapp/scripts/filters.js</js>
+        <!--<js minimize="false">/jetapp/charts/scripts/d3.min.js</js>-->
+        <!--<js minimize="false">/jetapp/charts/scripts/nv.d3.min.js"</js>-->
+    </group>
+
+    <!--<group name="J2_ADMIN_CSS">-->
+    <!--<css>/jetapp/bower_components/html5-boilerplate/dist/css/normalize.css</css>-->
+    <!--<css>/jetapp/bower_components/html5-boilerplate/dist/css/main.css</css>-->
+    <!--<css>/jetapp/bower_components/bootstrap/dist/css/bootstrap.min.css</css>-->
+    <!--<css>/jetapp/bower_components/bootstrap/dist/css/bootstrap-theme.min.css</css>-->
+    <!--<css>/jetapp/styles/ng-grid.min.css</css>-->
+    <!--<css>/jetapp/styles/app.css</css>-->
+    <!--<css>/jetapp/styles/default.css</css>-->
+    <!--</group>-->
+
+</groups>
+

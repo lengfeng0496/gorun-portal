@@ -1,0 +1,96 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<div class="modal-header" gwp-sliding-dialog>
+    <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
+    <h4 class="modal-title" ng-show="!criteria.name">New Criteria<span ng-show="criteria.name.length">: {{criteria.name}}</span></h4>
+    <h4 class="modal-title" ng-show="criteria.name">Criteria Detail: <span>{{criteria.name}}</span></h4>
+</div>
+<form role="form" novalidate class="form-horizontal css-form">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="criteria-name" class="col-sm-2 control-label">Name</label>
+            <div class="col-md-10 col-sm-10">
+                <input type="text" id="criteria-name" class="form-control" ng-model="criteria.name" gwp-autofocus gwp-no-spaces />
+                <span id="helpBlockID" class="help-block">Enter a unique name for this criteria</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="criteria-value" class="col-sm-2 control-label">Value</label>
+            <div class="col-md-10 col-sm-10">
+                <input type="text" id="criteria-value" class="form-control" ng-model="criteria.value" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="criteria-resolver" class="col-sm-2 control-label">Resolver Type</label>
+            <div class="col-md-10 col-sm-10">
+                <select id="criteria-resolver" class="form-control" ng-model="criteria.resolverType">
+                    <option value="request">request</option>
+                    <option value="session">session</option>
+                    <option value="request.session">request.session</option>
+                    <option value="hard.coded">hard.coded</option>
+                    <option value="group.role.user">group.role.user</option>
+                    <option value="user">user</option>
+                    <option value="group">group</option>
+                    <option value="role">role</option>
+                    <option value="mediatype">mediatype</option>
+                    <option value="country">country</option>
+                    <option value="language">language</option>
+                    <option value="roles">roles</option>
+                    <option value="path">path</option>
+                    <option value="page">page</option>
+                    <option value="path.session">path.session</option>
+                    <option value="user.attribute">user.attribute</option>
+                    <option value="navigation">navigation</option>
+                    <option value="ip">ip</option>
+                    <option value="hostname">hostname</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="criteria-fallback" class="col-sm-2 control-label">Fallback Type</label>
+            <div class="col-md-10 col-sm-10">
+                <select id="criteria-fallback" class="form-control" ng-model="criteria.fallback">
+                    <option value="1">Continue</option>
+                    <option value="0">Stop</option>
+                    <option value="2">Loop</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="criteria-order" class="col-sm-2 control-label">Order</label>
+            <div class="col-md-10 col-sm-10">
+                <input type="number" id="criteria-order" class="form-control" ng-model="criteria.order" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10 col-sm-10 padding-left0">
+                <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><strong>{{alert.msg}}</strong></alert>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="close()">Cancel</button>
+        <input type="submit" class="btn btn-primary" ng-click="add()" ng-disabled="!criteria.name.length || !criteria.resolverType.length || (criteria.fallback === -1)" ng-show="!criteria.name" value="Add"/>
+        <input type="submit" class="btn btn-primary" ng-click="add()" ng-disabled="!criteria.name.length || !criteria.resolverType.length || (criteria.fallback === -1)" ng-show="criteria.name" value="Update"/>
+    </div>
+</form>

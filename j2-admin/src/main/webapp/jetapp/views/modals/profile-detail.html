@@ -1,0 +1,88 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<div class="modal-header" gwp-sliding-dialog>
+    <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
+    <h4 class="modal-title" ng-show="!profile.id">New Profile<span ng-show="profile.id.length">: {{profile.id}}</span></h4>
+    <h4 class="modal-title" ng-show="profile.id">Profile Detail: <span>{{profile.id}}</span></h4>
+</div>
+<form role="form" novalidate class="form-horizontal css-form">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="profile-id" class="col-sm-2 control-label">Profile ID</label>
+            <div class="col-md-10 col-sm-10">
+                <input type="text" id="profile-id" class="form-control" placeholder="new-profile-id" ng-model="profile.id" ng-class="{error: !isValidTitle()}" ng-disabled="existing" gwp-autofocus gwp-no-spaces />
+                <span id="helpBlockID" class="help-block" ng-show="!existing">Enter a unique ID for this Profile</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="profile-title" class="col-sm-2 control-label">Description</label>
+            <div class="col-md-10 col-sm-10">
+                <input type="text" id="profile-title" class="form-control" placeholder="new-profile-title" ng-model="profile.title" ng-class="{error: !isValidTitle()}" />
+                <span id="helpBlockTitle" class="help-block">Enter a description of this Profile</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="profile-class" class="col-sm-2 control-label">Java Class</label>
+            <div class="col-md-10 col-sm-10">
+                <select id="profile-class" class="form-control" placeholder="new-profile-class" ng-required ng-model="profile.concreteClass">
+                    <option value="org.apache.jetspeed.profiler.rules.impl.StandardProfilingRule">Standard</option>
+                    <option value="org.apache.jetspeed.profiler.rules.impl.RoleFallbackProfilingRule">Fallback</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="profile-class" class="col-sm-2 control-label">Criteria<br /><button type="button" class="btn btn-success btn-xs" ng-click="addCriteria()">add</button></label>
+            <div class="col-md-10 col-sm-10">
+                <span ng-show="!profile.criteria.length"><br />None</span>
+                <table ng-show="profile.criteria.length" class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Value</th>
+                        <th>Resolver Type</th>
+                        <th>Fallback Type</th>
+                        <th>Order</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="criteria in profile.criteria" ng-click="addCriteria($index)">
+                        <td ng-bind="criteria.name"></td>
+                        <td ng-bind="criteria.value"></td>
+                        <td ng-bind="criteria.resolverType"></td>
+                        <td ng-bind="criteria.fallback"></td>
+                        <td ng-bind="criteria.order"></td>
+                        <td><button type="button" class="btn btn-danger btn-sm" ng-click="removeCriteria($index)">-</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10 col-sm-10 padding-left0">
+                <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><strong>{{alert.msg}}</strong></alert>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="close()">Cancel</button>
+        <input type="submit" class="btn btn-primary" ng-click="add()" ng-disabled="!profile.id.length || !profile.concreteClass.length || !isValidTitle() || !isUniqueId()" ng-show="!existing" value="Add"/>
+        <input type="submit" class="btn btn-primary" ng-click="add()" ng-disabled="!profile.id.length || !profile.concreteClass.length || !isValidTitle()" ng-show="existing" value="Update"/>
+    </div>
+</form>
